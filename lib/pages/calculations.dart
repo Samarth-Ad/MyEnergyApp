@@ -50,7 +50,7 @@ class _calculationPageState extends State<calculationPage> {
             const Padding(
               padding: EdgeInsets.all(25.0),
               child: Center(
-                child: Text("Calculation of Your energy \nconsumption and cost \n             estimation",
+                child: Text("Calculation of Your energy \n consumption and cost \n             estimation",
                 style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,
                 color: Colors.black),
                 ),
