@@ -1,4 +1,5 @@
-import 'package:energy_monitoring_app/pages/calculations.dart';
+// import 'package:energy_monitoring_app/pages/calculations.dart';
+import 'package:energy_monitoring_app/pages/history_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: Colors.yellow),
-      home: const calculationPage(),
+      home: const HistoryPage(),
       );
   }
 }
