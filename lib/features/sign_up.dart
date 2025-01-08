@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../core/theme/app_pallet.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -14,7 +13,17 @@ class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController phoneNumberController = TextEditingController();
-  final TextEditingController unitUsageController = TextEditingController();
+
+  // List of states in India
+  final List<String> _states = [
+    'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh',
+    'Goa', 'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jharkhand', 'Karnataka',
+    'Kerala', 'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram',
+    'Nagaland', 'Odisha', 'Punjab', 'Rajasthan', 'Sikkim', 'Tamil Nadu',
+    'Telangana', 'Tripura', 'Uttar Pradesh', 'Uttarakhand', 'West Bengal'
+  ];
+
+  String? _selectedState;
 
   @override
   Widget build(BuildContext context) {
@@ -37,16 +46,14 @@ class _SignUpPageState extends State<SignUpPage> {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 30),
-              // Email Address Field
               TextField(
                 controller: emailController,
                 decoration: InputDecoration(
-                  labelText: "Email Address",
+                  labelText: "Email",
                   prefixIcon: Icon(Icons.email, color: AppPalette.secondaryColor),
                 ),
               ),
               const SizedBox(height: 20),
-              // Password Field
               TextField(
                 controller: passwordController,
                 decoration: InputDecoration(
@@ -56,7 +63,6 @@ class _SignUpPageState extends State<SignUpPage> {
                 obscureText: true,
               ),
               const SizedBox(height: 20),
-              // Phone Number Field
               TextField(
                 controller: phoneNumberController,
                 decoration: InputDecoration(
@@ -65,29 +71,36 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
               ),
               const SizedBox(height: 20),
-              // Last 3 Months Unit Usage Field
-              TextField(
-                controller: unitUsageController,
-                decoration: InputDecoration(
-                  labelText: "Last 3 months Unit Usage",
-                  prefixIcon: Icon(Icons.access_time, color: AppPalette.secondaryColor),
-                ),
+              DropdownButtonFormField<String>(
+                decoration: InputDecoration(labelText: 'Select your state'),
+                value: _selectedState,
+                items: _states.map((String state) {
+                  return DropdownMenuItem<String>(
+                    value: state,
+                    child: Text(state),
+                  );
+                }).toList(),
+                onChanged: (newValue) {
+                  setState(() {
+                    _selectedState = newValue;
+                  });
+                },
+                validator: (value) => value == null ? 'Please select a state' : null,
               ),
               const SizedBox(height: 30),
-              // Sign Up Button
               ElevatedButton(
                 onPressed: () {
                   // Handle sign-up logic here
                   final email = emailController.text;
                   final password = passwordController.text;
                   final phoneNumber = phoneNumberController.text;
-                  final unitUsage = unitUsageController.text;
+                  final state = _selectedState;
 
                   // Print values for testing
                   print('Email: $email');
                   print('Password: $password');
                   print('Phone Number: $phoneNumber');
-                  print('Unit Usage: $unitUsage');
+                  print('State: $state');
 
                   // Add your logic for sign-up
                 },
@@ -101,7 +114,6 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
               ),
               const SizedBox(height: 20),
-              // Login Text
               GestureDetector(
                 onTap: () {
                   Navigator.pushNamed(context, '/login_with_state'); // Assuming you have a login route
@@ -128,7 +140,6 @@ class _SignUpPageState extends State<SignUpPage> {
     emailController.dispose();
     passwordController.dispose();
     phoneNumberController.dispose();
-    unitUsageController.dispose();
     super.dispose();
   }
 }

@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 
 import '../core/theme/app_pallet.dart';
 
-class LoginWithStatePage extends StatefulWidget {
-  const LoginWithStatePage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<LoginWithStatePage> createState() => _LoginWithStatePageState();
+  State<LoginPage> createState() => _LoginPage();
 }
 
-class _LoginWithStatePageState extends State<LoginWithStatePage> {
+class _LoginPage extends State<LoginPage> {
   bool isEmailLogin = true;
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "543309871864",
+    "project_id": "energy-monitoring-app",
+    "storage_bucket": "energy-monitoring-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:543309871864:android:e93ddf9b6dc10f319cd90d",
+        "android_client_info": {
+          "package_name": "com.MyEnergyApp.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9caOzEhUiz0rf89zX-rE8PPGv0onVrvg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:543309871864:android:4a5de6f93c29cf1a9cd90d",
+        "android_client_info": {
+          "package_name": "com.energy_monitoring_app.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9caOzEhUiz0rf89zX-rE8PPGv0onVrvg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
