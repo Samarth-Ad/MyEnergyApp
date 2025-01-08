@@ -24,6 +24,7 @@ class _SignUpPageState extends State<SignUpPage> {
   ];
 
   String? _selectedState;
+  bool _obscurePassword = true;
 
   @override
   Widget build(BuildContext context) {
@@ -59,8 +60,19 @@ class _SignUpPageState extends State<SignUpPage> {
                 decoration: InputDecoration(
                   labelText: "Password",
                   prefixIcon: Icon(Icons.lock, color: AppPalette.secondaryColor),
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      _obscurePassword ? Icons.visibility : Icons.visibility_off,
+                      color: AppPalette.secondaryColor,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _obscurePassword = !_obscurePassword;
+                      });
+                    },
+                  ),
                 ),
-                obscureText: true,
+                obscureText: _obscurePassword,
               ),
               const SizedBox(height: 20),
               TextField(
