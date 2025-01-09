@@ -78,7 +78,7 @@ class _HistoryPageState extends State<HistoryPage> {
               barRods: [
                 BarChartRodData(
                   toY: e.value['cost'],
-                  color: Colors.blue,
+                  color: Theme.of(context).colorScheme.secondary,
                   width: 24, // Wider bars to make them more visible
                   borderRadius: BorderRadius.zero, // Sharp edges for a clean look
                 ),
@@ -91,8 +91,11 @@ class _HistoryPageState extends State<HistoryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.yellow,
-        title: const Text('History Page'),
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        title: Padding(
+          padding: const EdgeInsets.only(left:75.0),
+          child:  Text('History Page'),
+        ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
@@ -130,14 +133,14 @@ class _HistoryPageState extends State<HistoryPage> {
                           gridData: FlGridData(
                             show: true,
                             getDrawingHorizontalLine: (value) {
-                              return FlLine(
-                                color: const Color(0xff37434d),
+                              return const  FlLine(
+                                color:  Color(0xff37434d),
                                 strokeWidth: 1,
                               );
                             },
                             getDrawingVerticalLine: (value) {
-                              return FlLine(
-                                color: const Color(0xff37434d),
+                              return const FlLine(
+                                color:  Color(0xff37434d),
                                 strokeWidth: 1,
                               );
                             },
@@ -154,7 +157,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                     padding: const EdgeInsets.only(bottom: 8.0), // Added more padding to move the labels above
                                     child: Text(
                                       monthNames[value.toInt()],
-                                      style: TextStyle(fontSize: 14), // Adjust font size
+                                      style: const TextStyle(fontSize: 14), // Adjust font size
                                     ),
                                   );
                                 },
@@ -167,7 +170,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                 getTitlesWidget: (value, meta) {
                                   return Text(
                                     '₹${value.toInt()}', // Show cost in ₹
-                                    style: TextStyle(fontSize: 12), // Adjust font size
+                                    style:const  TextStyle(fontSize: 12), // Adjust font size
                                   );
                                 },
                               ),
